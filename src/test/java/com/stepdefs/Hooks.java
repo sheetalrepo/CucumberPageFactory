@@ -22,7 +22,7 @@ public class Hooks {
 	public void tearDownDriver() {
 		System.out.println("------------- After hooks --------------");
 		System.out.println("Quit driver: "+ driver);
-		driver.quit();
+		//driver.quit();
 	}
 
 }

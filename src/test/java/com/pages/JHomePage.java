@@ -29,8 +29,9 @@ public class JHomePage extends Base {
 	
 	/**
 	 * Actions methods
+	 * @throws InterruptedException 
 	 */
-	public void searchForKeyword(String keyword){
+	public void searchForKeyword(String keyword) throws InterruptedException{
 		sendKeys(searchBar, keyword);
 		click(searchButton);
 	}

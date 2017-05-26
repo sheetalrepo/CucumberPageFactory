@@ -2,6 +2,7 @@ package com.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,11 +21,14 @@ public class Base {
 	}
 
 	public static WebDriver getDriver(){
-    	//init firfox here
-    	String path = System.getProperty("user.dir");
-		System.setProperty("webdriver.gecko.driver", path + "/src/test/resources/drivers/geckodriver");
-    	driver = new FirefoxDriver();
-    	return driver;
+    		//init firfox here
+    		String path = System.getProperty("user.dir");
+		// System.setProperty("webdriver.gecko.driver", path +
+		// "/src/test/resources/drivers/geckodriver");
+		// driver = new FirefoxDriver();
+    		System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/drivers/chromedriver3");
+    		driver = new ChromeDriver();
+    		return driver;
     }
     
     /**
@@ -51,8 +55,9 @@ public class Base {
 		element.click();
 	}
 
-	public void sendKeys(WebElement element, String keyword) {
+	public void sendKeys(WebElement element, String keyword) throws InterruptedException {
 		//waitForVisibilityOfElement(element);
+		Thread.sleep(3000);
 		element.clear();
 		element.sendKeys(keyword);
 	}

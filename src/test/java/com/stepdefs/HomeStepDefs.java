@@ -23,13 +23,14 @@ public class HomeStepDefs{
 	
 	@Given("^I am on home page$")
 	public void i_am_on_home_page() throws Throwable {
-		System.out.println(">>>>> driver in step def: "+driver);
+		driver = Base.getDriver();
+		System.out.println(">>>>>>>>>>>>>>>>>>. driver in step def: "+driver);
+		driver.get("http://www.jabong.com/");
 		homepage = new JHomePage(driver);
 	}
 
 	@When("^I searched for \"([^\"]*)\"$")
 	public void i_searched_for(String keyword) throws Throwable {
-	   System.out.println("searching for "+keyword);
 	   homepage.searchForKeyword(keyword);
 	}
 
@@ -37,9 +38,7 @@ public class HomeStepDefs{
 	public void i_got_correct_results(String keyword) throws Throwable {
 		searchpage = new SearchPage(driver);
 		String url = searchpage.getCurrentUrl();
-		String q = "q="+keyword;
-		System.out.println(">>>>>>>>> u: "+url+"    "+q);
-		Assert.assertTrue("Wrong SRP", url.contains("q="+keyword));
+		Assert.assertTrue("Wrong SRP", url.contains("?q="+keyword+"&"));
 	}
 
 
