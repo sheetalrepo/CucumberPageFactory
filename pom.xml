@@ -38,7 +38,12 @@
 		</dependency>
 
 		<!-- for dependency injection -->
-		
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
 
 
 	</dependencies>

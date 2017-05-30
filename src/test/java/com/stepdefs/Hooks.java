@@ -14,14 +14,14 @@ public class Hooks {
 	@Before
 	public void initDriver() {
 		System.out.println("------------- Before hooks --------------");
-		driver = Base.getDriver();
-		System.out.println(">>>>>>>>> driver initialized in Hook: "+ driver);
+		//driver = Base.getDriver();
+		//System.out.println(">>>>>>>>> driver initialized in Hook: "+ driver);
 	}
 
 	@After
 	public void tearDownDriver() {
 		System.out.println("------------- After hooks --------------");
-		System.out.println("Quit driver: "+ driver);
+		//System.out.println("Quit driver: "+ driver);
 		//driver.quit();
 	}
 

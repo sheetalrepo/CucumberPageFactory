@@ -13,3 +13,4 @@ Feature: Homepage
     Examples: 
       | keyword |
       | shoes   |
+      | tshirts |

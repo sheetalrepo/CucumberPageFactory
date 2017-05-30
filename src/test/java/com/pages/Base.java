@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.stepdefs.Context;
+
 
 /**
  * Created by sheetalsingh on 17/05/17.
@@ -15,6 +17,7 @@ public class Base {
 
 	public static WebDriver driver;
 	WebDriverWait wait;
+	Context context;
 	
     public Base(WebDriver driver) {
 		this.driver = driver;
@@ -23,9 +26,7 @@ public class Base {
 	public static WebDriver getDriver(){
     		//init firfox here
     		String path = System.getProperty("user.dir");
-		// System.setProperty("webdriver.gecko.driver", path +
-		// "/src/test/resources/drivers/geckodriver");
-		// driver = new FirefoxDriver();
+		
     		System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/drivers/chromedriver3");
     		driver = new ChromeDriver();
     		return driver;
@@ -38,6 +39,7 @@ public class Base {
 	 * wait time need to be picked from properties file
 	 */
 	public void waitForVisibilityOfElement(WebElement element) {
+		//wait = new WebDriverWait(getDriver(), 10);
 		wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -55,9 +57,9 @@ public class Base {
 		element.click();
 	}
 
-	public void sendKeys(WebElement element, String keyword) throws InterruptedException {
+	public void sendKeys(WebElement element, String keyword)  {
 		//waitForVisibilityOfElement(element);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		element.clear();
 		element.sendKeys(keyword);
 	}

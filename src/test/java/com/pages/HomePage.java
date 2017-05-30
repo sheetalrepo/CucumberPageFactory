@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class JHomePage extends Base {
+public class HomePage extends Base {
 
 	@FindBy(id = "search")
 	WebElement searchBar;
@@ -16,11 +16,11 @@ public class JHomePage extends Base {
 	@FindBy(xpath = "//div[@class='common-segment-slider']")
 	WebElement slider;
 	
-//	public JHomePage() {
-//		super(driver);
-//	}
+	@FindBy(css = ".nav-sports.active-li>a")
+	WebElement sportsTab;
 	
-	public JHomePage(WebDriver driver){
+	
+	public HomePage(WebDriver driver){
 		super(driver);
 		PageFactory.initElements(driver, this);
 		//isElementPresent(slider);
@@ -31,15 +31,20 @@ public class JHomePage extends Base {
 	 * Actions methods
 	 * @throws InterruptedException 
 	 */
-	public void searchForKeyword(String keyword) throws InterruptedException{
+	public void searchForKeyword(String keyword){
 		sendKeys(searchBar, keyword);
 		click(searchButton);
+	}
+	
+	
+	public void clickSportsTab() {
+		click(sportsTab);
 	}
 	
 	/**
 	 * Getters
 	 */
-
+	
 	
 	
 	/**

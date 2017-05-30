@@ -9,11 +9,16 @@ public class SearchPage extends Base {
 
 	WebDriver driver;
 	
-	@FindBy(xpath = ".//*[@id='filter-container']/li[2]/div[2]/div/label[1]/div/input")
-	WebElement offers10Percent;
+	//@FindBy(xpath = "//li[@id='categories']/ul/li/ul/li/p[1]/a")
+	@FindBy(xpath = ".//*[@id='filter-container']/li[2]/div[2]/div/label[1]/a")
+	WebElement firstOffer;
 
 	@FindBy(xpath = ".//*[@id='catalog-product']/section[2]/div[1]/a")
 	WebElement firstProduct;
+	
+	@FindBy(className = "filtered-brand")
+	WebElement filteredBrand;
+	
 
 	public SearchPage(WebDriver driver){
 		//this.driver = driver;
@@ -25,8 +30,8 @@ public class SearchPage extends Base {
 	/**
 	 * Actions methods
 	 */
-	public void click10PercentOfferButton(){
-		click(offers10Percent);
+	public void clickFirstOfferRadioButton(){
+		click(firstOffer);
 	}
 	
 	
@@ -37,10 +42,14 @@ public class SearchPage extends Base {
 	/**
 	 * Getters
 	 */
-	public String getCurrentUrl(){
+	public String getSrpCurrentUrl(){
 		return getUrl();
 	}
 	
+	
+	public String getFilteredBrandText() {
+		return getText(filteredBrand);
+	}
 	
 	/**
 	 * Setters
