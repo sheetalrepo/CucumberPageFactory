@@ -21,15 +21,15 @@ public class HomeStepDefs {
 	SearchPage searchpage;
 
 	private Context context;
+
 	public HomeStepDefs(Context context) {
 		this.context = context;
 	}
 
 	@Given("^I am on home page$")
 	public void i_am_on_home_page() throws Throwable {
-		//driver = Base.getDriver();
 		driver = context.getDriver();
-		
+
 		System.out.println(">>>>>>>>>>>>>>>>>> Driver in home step def: " + driver);
 		driver.get("http://www.jabong.com/");
 		homepage = new HomePage(driver);
@@ -43,7 +43,8 @@ public class HomeStepDefs {
 	@Then("^I got correct \"([^\"]*)\" results$")
 	public void i_got_correct_results(String keyword) throws Throwable {
 		searchpage = new SearchPage(driver);
-		String url = searchpage.getSrpCurrentUrl();
+		String url = searchpage.getUrl();
+		System.out.println(">>> SRP Url:  " + url);
 		Assert.assertTrue("Wrong SRP", url.contains("?q=" + keyword + "&"));
 	}
 

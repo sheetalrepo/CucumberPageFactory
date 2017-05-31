@@ -23,7 +23,7 @@ public class HomePage extends Base {
 	public HomePage(WebDriver driver){
 		super(driver);
 		PageFactory.initElements(driver, this);
-		//isElementPresent(slider);
+		isElementPresent(searchBar);
 	}
 	
 	

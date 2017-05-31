@@ -2,45 +2,26 @@ package com.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.stepdefs.Context;
-
 
 /**
  * Created by sheetalsingh on 17/05/17.
  */
 public class Base {
 
-	public static WebDriver driver;
+	WebDriver driver;
 	WebDriverWait wait;
-	Context context;
-	
-    public Base(WebDriver driver) {
+
+	public Base(WebDriver driver) {
 		this.driver = driver;
+		this.wait = new WebDriverWait(driver, 10);
 	}
 
-	public static WebDriver getDriver(){
-    		//init firfox here
-    		String path = System.getProperty("user.dir");
-		
-    		System.setProperty("webdriver.chrome.driver", path + "/src/test/resources/drivers/chromedriver3");
-    		driver = new ChromeDriver();
-    		return driver;
-    }
-    
-    /**
+	/**
 	 * Common explicit wait methods; 
-	 * Generic can be used be most of the cases
-	 * 
-	 * wait time need to be picked from properties file
 	 */
 	public void waitForVisibilityOfElement(WebElement element) {
-		//wait = new WebDriverWait(getDriver(), 10);
-		wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
@@ -48,35 +29,40 @@ public class Base {
 	 * Common explicit wait methods
 	 */
 	public void waitForClickablityOfElement(WebElement element) {
-		wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-    
-    public void click(WebElement element) {
-		//waitForClickablityOfElement(element);
+
+	public boolean isElementPresent(WebElement element) {
+		waitForVisibilityOfElement(element);
+		return element.isDisplayed();
+	}
+	
+	public void click(WebElement element) {
+		waitForClickablityOfElement(element);
 		element.click();
 	}
 
-	public void sendKeys(WebElement element, String keyword)  {
-		//waitForVisibilityOfElement(element);
-		//Thread.sleep(3000);
+	public void sendKeys(WebElement element, String keyword) {
+		waitForVisibilityOfElement(element);
 		element.clear();
 		element.sendKeys(keyword);
 	}
-	
+
 	public String getText(WebElement element) {
-		//waitForVisibilityOfElement(element);
+		waitForVisibilityOfElement(element);
 		return element.getText();
 	}
 
 	public String getAttributeValue(WebElement element, String attribute) {
-		//waitForVisibilityOfElement(element);
+		waitForVisibilityOfElement(element);
 		return element.getAttribute(attribute);
 	}
-	
-	public String getUrl(){
+
+	public String getUrl() {
+		System.out.println(">>>>>>>>>>>>>>>    Base Page getUrl() driver:   " + driver);
 		return driver.getCurrentUrl();
 	}
 	
 	
+
 }

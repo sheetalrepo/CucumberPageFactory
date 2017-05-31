@@ -1,5 +1,6 @@
 package com.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,46 +13,34 @@ public class ProductPage extends Base {
 	@FindBy(id = "pdp-offer-coupon")
 	WebElement offerCode;
 
-	public ProductPage(){
-		//this.driver = driver;
+	public ProductPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
 
-	
-
 	/**
 	 * Actions methods
 	 */
-	
-	
+
 	/**
 	 * Getters
 	 */
-	//todo: some unknown error coming
-	public String getOfferCode(){
-		//return getText(offerCode);
+	// todo: some unknown error coming
+	public String getOfferCode() {
+		// return getText(offerCode);
 		return "EXTRA10";
 	}
-	
-	
-	
+
 	/**
 	 * Setters
 	 */
 
-
-
-
 	/**
 	 * Verification methods
 	 */
-	public boolean isSearchPageLoaded(){
-		//return isElementPresent(addToCartButton);
+	public boolean isSearchPageLoaded() {
+		// return isElementPresent(addToCartButton);
 		return true;
 	}
-	
-	
-	
-	
+
 }
