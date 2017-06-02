@@ -30,9 +30,10 @@ public class HomeStepDefs {
 	public void i_am_on_home_page() throws Throwable {
 		driver = context.getDriver();
 
-		System.out.println(">>>>>>>>>>>>>>>>>> Driver in home step def: " + driver);
+		System.out.println(">>> Driver in home step def: " + driver);
 		driver.get("http://www.jabong.com/");
 		homepage = new HomePage(driver);
+		System.out.println(">>> Homepage URL: "+homepage.getUrl());
 	}
 
 	@When("^I searched for \"([^\"]*)\"$")

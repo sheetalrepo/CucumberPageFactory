@@ -4,12 +4,11 @@ Feature: Homepage
   As a user
   I want to verify search result comes
 
-  @tst
-  Scenario Outline: Verify search box working
+  @testbrowser
+  Scenario: Verify browser opens
     Given I am on home page
-    When I searched for "<keyword>"
-    Then I got correct "<keyword>" results
+    Then I verify that 10 is greater than 5
 
-    Examples: 
-      | keyword |
-      | laptops |
+  @testassert
+  Scenario: Verify assert works
+    Given I verify that 10 is greater than 5

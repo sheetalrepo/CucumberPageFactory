@@ -12,5 +12,5 @@ Feature: Homepage
 
     Examples: 
       | keyword |
-      | mobile   |
-      | camera |
+      | tshirt  |
+      | jeans  |

@@ -33,33 +33,32 @@ public class Base {
 	}
 
 	public boolean isElementPresent(WebElement element) {
-		waitForVisibilityOfElement(element);
+		//waitForVisibilityOfElement(element);
 		return element.isDisplayed();
 	}
 	
 	public void click(WebElement element) {
-		waitForClickablityOfElement(element);
+		//waitForClickablityOfElement(element);
 		element.click();
 	}
 
 	public void sendKeys(WebElement element, String keyword) {
-		waitForVisibilityOfElement(element);
+		//waitForVisibilityOfElement(element);
 		element.clear();
 		element.sendKeys(keyword);
 	}
 
 	public String getText(WebElement element) {
-		waitForVisibilityOfElement(element);
+		//waitForVisibilityOfElement(element);
 		return element.getText();
 	}
 
 	public String getAttributeValue(WebElement element, String attribute) {
-		waitForVisibilityOfElement(element);
+		//waitForVisibilityOfElement(element);
 		return element.getAttribute(attribute);
 	}
 
 	public String getUrl() {
-		System.out.println(">>>>>>>>>>>>>>>    Base Page getUrl() driver:   " + driver);
 		return driver.getCurrentUrl();
 	}
 	

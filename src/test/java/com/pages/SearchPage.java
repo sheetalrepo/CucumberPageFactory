@@ -19,13 +19,19 @@ public class SearchPage extends Base {
 	public SearchPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
-		isElementPresent(firstOffer);
+		isElementPresent(firstProduct);
 	}
 
 	/**
 	 * Actions methods
 	 */
 	public void clickFirstOfferRadioButton() {
+		//todo: temporary hard coding
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		click(firstOffer);
 	}
 
