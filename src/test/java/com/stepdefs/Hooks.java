@@ -13,12 +13,12 @@ public class Hooks {
 
 	@Before
 	public void initDriver() {
-		//System.out.println("------------- Before hooks --------------");
+		System.out.println("------------- Before hooks --------------");
 	}
 
 	@After
 	public void tearDownDriver() {
-		//System.out.println("------------- After hooks --------------");
+		System.out.println("------------- After hooks --------------");
 	}
 
 }

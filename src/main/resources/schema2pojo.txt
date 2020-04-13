@@ -1,0 +1,16 @@
+#This is just to show that POJO can be generated using Json Schema file with the help of only Plugin (jsonschema2pojo-maven-plugin)
+
+#Steps:
+1. Add jsonschema2pojo-maven-plugin plugin in pom
+2. Add schema file in src/main/resources/schema folder
+3. run mvn command   mvn clean generate-sources
+
+#Result:
+Pojo will be generated in given path(in plugin)
+e.g. target/generated-sources/jsonschema2pojo/com/pojos
+
+
+#Reference:
+#json to json schema  https://www.liquid-technologies.com/online-json-to-schema-converter
+#pojo  http://www.jsonschema2pojo.org/
+#API http://jsonplaceholder.typicode.com/photos/1
